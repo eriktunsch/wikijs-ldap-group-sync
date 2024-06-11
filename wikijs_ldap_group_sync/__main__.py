@@ -21,6 +21,7 @@ def main():
     env.check_config()
 
     # LDAP Connection
+    ldap.set_option( ldap.OPT_X_TLS_ALLOW, ldap.OPT_X_TLS_NEVER )
     if Env.LDAP_TLS_VERIFICATION is None or Env.LDAP_TLS_VERIFICATION == "":
         ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)
     ldap_connection = None
